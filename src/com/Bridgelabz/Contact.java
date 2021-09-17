@@ -83,6 +83,9 @@ class Contact{
         public void setPhoneNumber(Long phoneNumber) {
             this.phoneNumber = phoneNumber;
         }
-
+    public void display() {
+        System.out.println(" FIRST NAME: " + getFirstName() + " LAST NAME: " + getLastName() + " ADDRESS: " + getAddress() + " CITY " + getCity()
+                + " STATE:" + getState() + " EMAIL ID:" + getEmail() + " ZIP CODE:" + getZipCode() + " PHONE NUMBER:" + getPhoneNumber());
+    }
     }
 
