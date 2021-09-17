@@ -3,6 +3,7 @@ package com.Bridgelabz;
 import java.util.Scanner;
 
 class Contact{
+ //UC1 ABILITY TO CREATE CONTACTS IN ADDRESS BOOK
 
     Scanner sc = new Scanner(System.in);
         private String firstName;

@@ -6,6 +6,7 @@ public class Contact_Main {
     public static void main(String[] args) {
         getInput();
     }
+     //UC2 ABILIY TO ADD NEW CONTACT TO THE ADDRESS BOOK
 
     public static void getInput() {
         Scanner input = new Scanner(System.in);
@@ -29,6 +30,8 @@ public class Contact_Main {
 
         Contact person = new Contact(firstName, lastName, address, city, state, email, zipcode, phoneNumber);
         person.display();
+
+         // UC3 ABILITY TO EDIT EXISTING CONTACT PERSON USING THEIR NAME
 
         person.editDetails();
         person.display();
