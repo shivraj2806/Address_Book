@@ -5,6 +5,63 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Addressbook_Main {
+    String bookName;
+
+    Addressbook_Main(String name) {
+        this.bookName = name;
+    }
+
+    String getName() {
+        return this.bookName;
+    }
+
+    public static void newUserInterface() {
+        ArrayList<Addressbook_Main> book = new ArrayList<>();
+        HashMap<Integer, ArrayList<Contact>> data = new HashMap<>();
+
+        int count = 1;
+        boolean flag = true;
+        while (flag) {
+
+            System.out.println("**************** WELCOME *****************");
+            System.out.println("SELECT ANY ONE OPTION");
+            System.out.println(" 1.CREATE NEW ADDRESS BOOK \n 2.DISPLAY ALL ADDRESS BOOK \n 3.EDIT ADDRESS BOOK  \n 4.EXIT");
+
+            Scanner sc = new Scanner(System.in);
+            int option = sc.nextInt();
+
+            switch (option) {
+
+                case 1:
+                    sc.nextLine();
+                    ArrayList<Contact> records = new ArrayList<>();
+                    data.put(count, records);
+                    System.out.println("NAME OF ADDRESS BOOK: ");
+                    String bookName = sc.nextLine();
+                    book.add(new Addressbook_Main(bookName));
+                    userInterface(data.get(count));
+                    count += 1;
+                    break;
+                case 2:
+                    printBook(book);
+                    break;
+                case 3:
+                    System.out.println("NAME OF THE ADDRESS BOOK: ");
+                    sc.nextLine();
+                    String name = sc.nextLine();
+                    int index = serchKey(name, book);
+                    userInterface(data.get(index));
+                    break;
+                case 4:
+                    System.out.println("************************Thank You**********************");
+                    flag = false;
+                    break;
+
+
+            }
+        }
+    }
+
     public static void userInterface(ArrayList<Contact> records) {
 
         boolean flag = true;
@@ -86,7 +143,24 @@ public class Addressbook_Main {
         }
     }
 
-public static void main(String[] args) {
+    public static void printBook(ArrayList<Addressbook_Main> book) {
+        for (Addressbook_Main b : book) {
+            System.out.println(b.bookName);
+        }
+    }
+
+    public static int serchKey(String name, ArrayList<Addressbook_Main> books) {
+        int count = 1;
+        for (Addressbook_Main book : books) {
+            if (Objects.equals(name, book.getName())) {
+                return count;
+            }
+            count++;
+        }
+        System.out.println("PLEASE PROVIDE VALID INPUT.");
+        return 0;
+    }
+    public static void main(String[] args) {
 
     ArrayList<Contact> records = new ArrayList<>();
 
